@@ -1,18 +1,54 @@
- <div class="ot-hero-wrapper hero-1" id="hero">
+{% liquid
+ 
+  assign hero_bg = section.settings.hero_bg | image_url: width: 2000
+  if section.settings.hero_bg == blank
+    assign hero_bg = 'hero-bg1-1.png' | asset_url
+  endif
+
+ 
+  assign shape1 = section.settings.shape1 | image_url
+  if section.settings.shape1 == blank
+    assign shape1 = 'hero-shape1-1.png' | asset_url
+  endif
+
+  assign shape2 = section.settings.shape2 | image_url
+  if section.settings.shape2 == blank
+    assign shape2 = 'hero-shape1-2.png' | asset_url
+  endif
+
+  assign shape3 = section.settings.shape3 | image_url
+  if section.settings.shape3 == blank
+    assign shape3 = 'hero-shape1-3.png' | asset_url
+  endif
+
+  assign shape4 = section.settings.shape4 | image_url
+  if section.settings.shape4 == blank
+    assign shape4 = 'hero-shape1-4.png' | asset_url
+  endif
+
+  
+  assign thumb1 = section.settings.thumb1 | image_url
+  if section.settings.thumb1 == blank
+    assign thumb1 = 'hero-thumb1-1.png' | asset_url
+  endif
+%}
+
+
+<div class="ot-hero-wrapper hero-1" id="hero">
         <div class="hero-shape1 ripple-animation">
-            <img src="{{ 'hero-shape1-1.png' |  asset_url  }}" alt="img">
+            <img src="{{ shape1 }}" alt="img">
         </div>
-        <div class="hero-shape2 ripple-animation">            
-            <img src="{{ 'hero-shape1-1.png' |  asset_url  }}" alt="img">
+        <div class="hero-shape2 ripple-animation">
+            <img src="{{ shape1 }}" alt="img">
         </div>
         <div class="hero-inner">
             <div class="container">
                 <div class="row gy-40">
                     <div class="col-xxl-12">
-                        <div class="hero-wrap1" data-bg-src="{{ 'hero-bg1-1.png' |  asset_url }}">
+                        <div class="hero-wrap1" data-bg-src="{{hero_bg}}">
                             <div class="hero-particle" id="hero-particle1"></div>
                             <div class="hero-shape3 jump d-sm-block d-none">
-                                <img src="assets/img/hero/hero-shape1-2.png" alt="img" data-cue="slideInUp" data-delay="500">
+                                <img src="{{ shape2 }}" alt="img" data-cue="slideInUp" data-delay="500">
                             </div>
                             <div class="hero-style1">
                                 <span class="sub-title " data-cue="slideInUp">Up to 70% Off Our Products</span>
@@ -25,12 +61,12 @@
                                 </div>
                             </div>
                             <div class="hero-thumb1-1" data-cue="slideInUp" data-delay="200">
-                                <img src="assets/img/hero/hero-thumb1-1.png" alt="img">
+                                <img src="{{ thumb1 }}" alt="img">
                                 <div class="hero-shape1-3 jump-reverse">
-                                    <img src="assets/img/hero/hero-shape1-3.png" alt="img">
+                                    <img src="{{ shape3 }}" alt="img">
                                 </div>
                                 <div class="hero-shape1-4 jump">
-                                    <img src="assets/img/hero/hero-shape1-4.png" alt="img">
+                                    <img src="{{ shape4 }}" alt="img">
                                 </div>
                             </div>
                         </div>
@@ -40,20 +76,24 @@
         </div>
     </div>
 
-    {% schema %}
+
+{% schema %}
+  {
+    "name": "Bm Hero",
+
+    "settings": [
+      { "type": "image_picker", "id": "hero_bg", "label": "Hero Background" },
+      { "type": "image_picker", "id": "shape1", "label": "Shape 1" },
+      { "type": "image_picker", "id": "shape2", "label": "Shape 2" },
+      { "type": "image_picker", "id": "shape3", "label": "Shape 3" },
+      { "type": "image_picker", "id": "shape4", "label": "Shape 4" },
+      { "type": "image_picker", "id": "thumb1", "label": "Hero Thumb" }
+    ],
+    "presets": [
       {
         "name": "Bm Hero",
-       
-        "settings": [
-        
-        ],
-        "presets": [
-          {
-            "name": "Bm Hero",
-            "settings": {              
-            }
-          }
-        ],
+        "settings": {}
       }
-    {% endschema %}
-    
+    ]
+  }
+{% endschema %}
