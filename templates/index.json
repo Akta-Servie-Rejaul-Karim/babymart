@@ -12,6 +12,12 @@
     "bm_hero_tWm4Lw": {
       "type": "bm-hero",
       "blocks": {
+        "subtitle_CDVpXC": {
+          "type": "subtitle",
+          "settings": {
+            "subtitle": "Up to 70% Off Our Products"
+          }
+        },
         "title_VzLTJh": {
           "type": "title",
           "settings": {
@@ -25,18 +31,12 @@
             "button_text": "Shop Now",
             "button_link": ""
           }
-        },
-        "subtitle_CDVpXC": {
-          "type": "subtitle",
-          "settings": {
-            "subtitle": "Up to 70% Off Our Products"
-          }
         }
       },
       "block_order": [
+        "subtitle_CDVpXC",
         "title_VzLTJh",
-        "button_3xKtzQ",
-        "subtitle_CDVpXC"
+        "button_3xKtzQ"
       ],
       "name": "Bm Hero",
       "settings": {}
