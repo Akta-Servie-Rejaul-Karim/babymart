@@ -364,6 +364,62 @@
     }
   },
   "sections": {
+     "hero": {
+      "name": "Hero Banner",
+      "presets": {
+        "name": "Hero Banner"
+      },
+      "settings": {
+        "header_images": {
+          "content": "Images"
+        },
+        "background_image": {
+          "label": "Background Image",
+          "info": "Recommended size: 1920x800px"
+        },
+        "hero_image": {
+          "label": "Hero Image"
+        },
+        "hero_image_shape": {
+          "label": "Decorative Shape 1"
+        },
+        "hero_image_shape_2": {
+          "label": "Decorative Shape 2"
+        }
+      },
+      "blocks": {
+        "subtitle": {
+          "name": "Subtitle",
+          "settings": {
+            "subtitle": {
+              "label": "Subtitle Text"
+            }
+          }
+        },
+        "title": {
+          "name": "Title",
+          "settings": {
+            "title_line_1": {
+              "label": "Title Line 1"
+            },
+            "title_line_2": {
+              "label": "Title Line 2"
+            }
+          }
+        },
+        "button": {
+          "name": "Button",
+          "settings": {
+            "button_text": {
+              "label": "Button Text"
+            },
+            "button_link": {
+              "label": "Button Link"
+            }
+          }
+        }
+      }
+    },
     "all": {
       "animation": {
         "content": "Animations",
