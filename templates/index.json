@@ -11,6 +11,33 @@
   "sections": {
     "bm_hero_tWm4Lw": {
       "type": "bm-hero",
+      "blocks": {
+        "title_VzLTJh": {
+          "type": "title",
+          "settings": {
+            "title_line_1": "Buy Children's Toys",
+            "title_line_2": "And Clothes"
+          }
+        },
+        "button_3xKtzQ": {
+          "type": "button",
+          "settings": {
+            "button_text": "Shop Now",
+            "button_link": ""
+          }
+        },
+        "subtitle_CDVpXC": {
+          "type": "subtitle",
+          "settings": {
+            "subtitle": "Up to 70% Off Our Products"
+          }
+        }
+      },
+      "block_order": [
+        "title_VzLTJh",
+        "button_3xKtzQ",
+        "subtitle_CDVpXC"
+      ],
       "name": "Bm Hero",
       "settings": {}
     },
