@@ -39,7 +39,9 @@
         "button_3xKtzQ"
       ],
       "name": "Bm Hero",
-      "settings": {}
+      "settings": {
+        "hero_image": "shopify://shop_images/hero-thumb1-1.png"
+      }
     },
     "featured_collection": {
       "type": "featured-collection",
