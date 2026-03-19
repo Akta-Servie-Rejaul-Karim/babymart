@@ -394,6 +394,9 @@
         },
         "hero_image_shape_2": {
           "label": "Decorative Shape 2"
+        },
+        "hero_image_shape_3": {
+          "label": "Decorative Shape 3"
         }
       },
       "blocks": {

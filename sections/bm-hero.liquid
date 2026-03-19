@@ -12,7 +12,7 @@
                     <div class="hero-wrap1" data-bg-src="{% if section.settings.background_image %}{{ section.settings.background_image | image_url}}{% else %}{{ 'hero-bg1-1.png' | asset_url }}{% endif %}">
                         <div class="hero-particle" id="hero-particle1"></div>
                         <div class="hero-shape3 jump d-sm-block d-none">
-                            <img src="{{ 'hero-shape1-2.png' | asset_url }}" alt="img" data-cue="slideInUp" data-delay="500">
+                            <img src="{{ section.settings.hero_image_shape_3 |  image_url: width: 1000  }}" alt="img" data-cue="slideInUp" data-delay="500">
                         </div>
                         <div class="hero-style1">
                           {% for block in section.blocks %}
@@ -42,13 +42,13 @@
 
                             {% if section.settings.hero_image_shape != blank %}
                             <div class="hero-shape1-3 jump-reverse">
-                                <img src="{{ section.settings.hero_image_shape |  image_url: width: 1500  }}" alt="img">
+                                <img src="{{ section.settings.hero_image_shape |  image_url: width: 1000  }}" alt="img">
                             </div>
                             {% endif %}
 
                             {% if section.settings.hero_image_shape_2 != blank %}
                             <div class="hero-shape1-4 jump">
-                                <img src="{{ section.settings.hero_image_shape_2 |  image_url: width: 1500  }}" alt="img">
+                                <img src="{{ section.settings.hero_image_shape_2 |  image_url: width: 1000  }}" alt="img">
                             </div>
                             {% endif %}
 
@@ -88,6 +88,11 @@
       "type": "image_picker",
       "id": "hero_image_shape_2",
       "label": "t:sections.hero.settings.hero_image_shape_2.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_shape_3",
+      "label": "t:sections.hero.settings.hero_image_shape_3.label"
     }
   ],
   "blocks": [
