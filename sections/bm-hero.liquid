@@ -11,8 +11,8 @@
         <div class="col-xxl-12">
           <div class="hero-wrap1" data-bg-src="{% if section.settings.background_image %}{{ section.settings.background_image | image_url}}{% else %}{{ 'hero-bg1-1.png' | asset_url }}{% endif %}">
             <div class="hero-particle" id="hero-particle1"></div>
-            {% if section.settings.hero_image_shape_3 != blank %}
 
+            {% if section.settings.hero_image_shape_3 != blank %}
               <div class="hero-shape3 jump d-sm-block d-none">
                 <img
                   src="{{ section.settings.hero_image_shape_3 |  image_url: width: 1000  }}"
@@ -21,6 +21,7 @@
                   data-delay="500">
               </div>
             {% endif %}
+            
             <div class="hero-style1">
               {% for block in section.blocks %}
                 {% case block.type %}
