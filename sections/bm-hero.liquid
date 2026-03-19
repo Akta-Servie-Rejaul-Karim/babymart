@@ -1,167 +1,182 @@
 <div class="ot-hero-wrapper hero-1" id="hero">
-    <div class="hero-shape1 ripple-animation">            
-        <img src="{{ 'hero-shape1-1.png' | asset_url }}" alt="img">
-    </div>
-    <div class="hero-shape2 ripple-animation">
-        <img src="{{ 'hero-shape1-1.png' | asset_url }}" alt="img">
-    </div>
-    <div class="hero-inner">
-        <div class="container">
-            <div class="row gy-40">
-                <div class="col-xxl-12">
-                    <div class="hero-wrap1" data-bg-src="{% if section.settings.background_image %}{{ section.settings.background_image | image_url}}{% else %}{{ 'hero-bg1-1.png' | asset_url }}{% endif %}">
-                        <div class="hero-particle" id="hero-particle1"></div>
-                        <div class="hero-shape3 jump d-sm-block d-none">
-                            <img src="{{ section.settings.hero_image_shape_3 |  image_url: width: 1000  }}" alt="img" data-cue="slideInUp" data-delay="500">
-                        </div>
-                        <div class="hero-style1">
-                          {% for block in section.blocks %}
-                            {%  case block.type %}  
-                            {% when 'subtitle' %}
+  <div class="hero-shape1 ripple-animation">
+    <img src="{{ 'hero-shape1-1.png' | asset_url }}" alt="img">
+  </div>
+  <div class="hero-shape2 ripple-animation">
+    <img src="{{ 'hero-shape1-1.png' | asset_url }}" alt="img">
+  </div>
+  <div class="hero-inner">
+    <div class="container">
+      <div class="row gy-40">
+        <div class="col-xxl-12">
+          <div class="hero-wrap1" data-bg-src="{% if section.settings.background_image %}{{ section.settings.background_image | image_url}}{% else %}{{ 'hero-bg1-1.png' | asset_url }}{% endif %}">
+            <div class="hero-particle" id="hero-particle1"></div>
+            {% if section.settings.hero_image_shape_2 != blank %}
 
-                            <span class="sub-title " data-cue="slideInUp">{{ block.settings.subtitle }}</span>
-                            {% when 'title' %}
+              <div class="hero-shape3 jump d-sm-block d-none">
+                <img
+                  src="{{ section.settings.hero_image_shape_3 |  image_url: width: 1000  }}"
+                  alt="img"
+                  data-cue="slideInUp"
+                  data-delay="500">
+              </div>
+            {% endif %}
+            <div class="hero-style1">
+              {% for block in section.blocks %}
+                {% case block.type %}
+                  {% when 'subtitle' %}
 
-                            <h1 class="hero-title text-white">
-                                <span class="title1" data-cue="slideInUp" data-delay="100">{{ block.settings.title_line_1 }}</span>
-                                <span class="title2" data-cue="slideInUp" data-delay="200">{{ block.settings.title_line_2 }}</span>
-                            </h1>
-                            {% when 'button' %}
-                            
-                            <div class="btn-group" data-cue="slideInUp" data-delay="300">
-                                <a href="{{ block.settings.button_link }}" class="ot-btn style-white">{{ block.settings.button_text }} <i class="fas fa-arrow-right ms-2"></i></a>
-                            </div>
-                            {% endcase %}
-                          {% endfor %}
+                    <span class="sub-title " data-cue="slideInUp">{{ block.settings.subtitle }}</span>
+                  {% when 'title' %}
 
-                        </div>
-                        <div class="hero-thumb1-1" data-cue="slideInUp" data-delay="200">
-                            {% if section.settings.hero_image != blank %}
-                              {% render 'responsive-image', image: section.settings.hero_image, loading: 'eager' %}
-                            {% endif %}
+                    <h1 class="hero-title text-white">
+                      <span
+                        class="title1"
+                        data-cue="slideInUp"
+                        data-delay="100">{{ block.settings.title_line_1 }}</span>
+                      <span
+                        class="title2"
+                        data-cue="slideInUp"
+                        data-delay="200">{{ block.settings.title_line_2 }}</span>
+                    </h1>
+                  {% when 'button' %}
 
-                            {% if section.settings.hero_image_shape != blank %}
-                            <div class="hero-shape1-3 jump-reverse">
-                                <img src="{{ section.settings.hero_image_shape |  image_url: width: 1000  }}" alt="img">
-                            </div>
-                            {% endif %}
-
-                            {% if section.settings.hero_image_shape_2 != blank %}
-                            <div class="hero-shape1-4 jump">
-                                <img src="{{ section.settings.hero_image_shape_2 |  image_url: width: 1000  }}" alt="img">
-                            </div>
-                            {% endif %}
-
-                        </div>
+                    <div
+                      class="btn-group"
+                      data-cue="slideInUp"
+                      data-delay="300">
+                      <a href="{{ block.settings.button_link }}" class="ot-btn style-white">{{ block.settings.button_text }}
+                        <i class="fas fa-arrow-right ms-2"></i>
+                      </a>
                     </div>
-                </div>
+                {% endcase %}
+              {% endfor %}
+
             </div>
+            <div
+              class="hero-thumb1-1"
+              data-cue="slideInUp"
+              data-delay="200">
+              {% if section.settings.hero_image != blank %}
+                {% render 'responsive-image'
+                  , image: section.settings.hero_image
+                  , loading: 'eager' %}
+              {% endif %}
+
+              {% if section.settings.hero_image_shape != blank %}
+                <div class="hero-shape1-3 jump-reverse">
+                  <img src="{{ section.settings.hero_image_shape |  image_url: width: 1000  }}" alt="img">
+                </div>
+              {% endif %}
+
+              {% if section.settings.hero_image_shape_2 != blank %}
+                <div class="hero-shape1-4 jump">
+                  <img src="{{ section.settings.hero_image_shape_2 |  image_url: width: 1000  }}" alt="img">
+                </div>
+              {% endif %}
+
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
 {% schema %}
-{
-  "name": "t:sections.hero.name",
-  "settings": [
-    {
-      "type": "header",
-      "content": "t:sections.hero.settings.header_images.content"
-    },
-    {
-      "type": "image_picker",
-      "id": "background_image",
-      "label": "t:sections.hero.settings.background_image.label",
-      "info": "t:sections.hero.settings.background_image.info"
-    },
-    {
-      "type": "image_picker",
-      "id": "hero_image",
-      "label": "t:sections.hero.settings.hero_image.label"
-    },
-    {
-      "type": "image_picker",
-      "id": "hero_image_shape",
-      "label": "t:sections.hero.settings.hero_image_shape.label"
-    },
-    {
-      "type": "image_picker",
-      "id": "hero_image_shape_2",
-      "label": "t:sections.hero.settings.hero_image_shape_2.label"
-    },
-    {
-      "type": "image_picker",
-      "id": "hero_image_shape_3",
-      "label": "t:sections.hero.settings.hero_image_shape_3.label"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "subtitle",
-      "name": "t:sections.hero.blocks.subtitle.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "subtitle",
-          "label": "t:sections.hero.blocks.subtitle.settings.subtitle.label",
-          "default": "Up to 70% Off Our Products"
-        }
-      ]
-    },
-    {
-      "type": "title",
-      "name": "t:sections.hero.blocks.title.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "title_line_1",
-          "label": "t:sections.hero.blocks.title.settings.title_line_1.label",
-          "default": "Buy Children's Toys"
-        },
-        {
-          "type": "text",
-          "id": "title_line_2",
-          "label": "t:sections.hero.blocks.title.settings.title_line_2.label",
-          "default": "And Clothes"
-        }
-      ]
-    },
-    {
-      "type": "button",
-      "name": "t:sections.hero.blocks.button.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "button_text",
-          "label": "t:sections.hero.blocks.button.settings.button_text.label",
-          "default": "Shop Now"
-        },
-        {
-          "type": "url",
-          "id": "button_link",
-          "label": "t:sections.hero.blocks.button.settings.button_link.label"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "t:sections.hero.presets.name",
-      "blocks": [
-        {
-          "type": "subtitle"
-        },
-        {
-          "type": "title"
-        },
-        {
-          "type": "button"
-        }
-      ]
-    }
-  ]
-}
+  {
+    "name": "t:sections.hero.name",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:sections.hero.settings.header_images.content"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "t:sections.hero.settings.background_image.label",
+        "info": "t:sections.hero.settings.background_image.info"
+      },
+      {
+        "type": "image_picker",
+        "id": "hero_image",
+        "label": "t:sections.hero.settings.hero_image.label"
+      },
+      {
+        "type": "image_picker",
+        "id": "hero_image_shape",
+        "label": "t:sections.hero.settings.hero_image_shape.label"
+      }, {
+        "type": "image_picker",
+        "id": "hero_image_shape_2",
+        "label": "t:sections.hero.settings.hero_image_shape_2.label"
+      }, {
+        "type": "image_picker",
+        "id": "hero_image_shape_3",
+        "label": "t:sections.hero.settings.hero_image_shape_3.label"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "subtitle",
+        "name": "t:sections.hero.blocks.subtitle.name",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "subtitle",
+            "label": "t:sections.hero.blocks.subtitle.settings.subtitle.label",
+            "default": "Up to 70% Off Our Products"
+          }
+        ]
+      }, {
+        "type": "title",
+        "name": "t:sections.hero.blocks.title.name",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "title_line_1",
+            "label": "t:sections.hero.blocks.title.settings.title_line_1.label",
+            "default": "Buy Children's Toys"
+          }, {
+            "type": "text",
+            "id": "title_line_2",
+            "label": "t:sections.hero.blocks.title.settings.title_line_2.label",
+            "default": "And Clothes"
+          }
+        ]
+      }, {
+        "type": "button",
+        "name": "t:sections.hero.blocks.button.name",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "button_text",
+            "label": "t:sections.hero.blocks.button.settings.button_text.label",
+            "default": "Shop Now"
+          }, {
+            "type": "url",
+            "id": "button_link",
+            "label": "t:sections.hero.blocks.button.settings.button_link.label"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "t:sections.hero.presets.name",
+        "blocks": [
+          {
+            "type": "subtitle"
+          }, {
+            "type": "title"
+          }, {
+            "type": "button"
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}
